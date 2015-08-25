@@ -81,14 +81,22 @@ func _testFileName() -> String {
     return sanitizedName
 }
 
+internal var appendDeviceSizeToSnapshots = false
+
 func _sanitizedTestName() -> String {
     let quickExample = World.sharedWorld().currentExampleMetadata
     var filename = quickExample!.example.name
     filename = filename.stringByReplacingOccurrencesOfString("root example group, ", withString: "")
     let characterSet = NSCharacterSet(charactersInString: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_")
     let components: NSArray = filename.componentsSeparatedByCharactersInSet(characterSet.invertedSet)
+    let name = components.componentsJoinedByString("_")
 
-    return components.componentsJoinedByString("_")
+    if appendDeviceSizeToSnapshots {
+        let (width, height) = (Int(UIScreen.mainScreen().bounds.width), Int(UIScreen.mainScreen().bounds.height))
+        return name + "_\(width)x\(height)"
+    }
+    
+    return name
 }
 
 func _clearFailureMessage(failureMessage: FailureMessage) {
