@@ -81,7 +81,7 @@ func _testFileName() -> String {
     return sanitizedName
 }
 
-internal var appendDeviceSizeToSnapshots = false
+public var appendDeviceSizeToSnapshots = false
 
 func _sanitizedTestName() -> String {
     let quickExample = World.sharedWorld().currentExampleMetadata
