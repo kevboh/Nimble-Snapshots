@@ -1,5 +1,21 @@
 # Nimble-Snapshots
 
+* 3.0.0
+
+* Calls through to `drawViewHierarchyInRect` on every snapshot prior to snapshot being made – @ashfurrow
+
+## 2.0.1
+
+* Disables bitcode – @ashfurrow
+
+## 2.0.0
+
+* Name sanitizing, custom folders and more housekeeping - @colinta
+
+## 1.2.0
+
+* Device diagnostic code – @esttorhe
+
 ## 1.0.0
 
 * Swift 2 support - @tibr
